@@ -63,18 +63,18 @@ class ProductRepositoryTest {
     @Test
     void saveAllMethod(){
         Product product = new Product();
-        product.setName("iphone 16");
-        product.setDescription("iphone 16, the costliest iphone ever");
-        product.setSku("q3raa13r");
+        product.setName("iphone 10");
+        product.setDescription("iphone 10, the most usable iphone");
+        product.setSku("q3r22aa13r");
         product.setPrice(new BigDecimal(2000));
         product.setActive(true);
         product.setImageUrl("url.com");
 
 
         Product product2 = new Product();
-        product2.setName("iphone 17");
-        product2.setDescription("iphone 17, the costliest iphone ever");
-        product2.setSku("q3ssraa13r");
+        product2.setName("iphone 12 mini");
+        product2.setDescription("iphone 12 mini, the most handy iphone with awesomeness of all iphones");
+        product2.setSku("q3ssraaaa13r");
         product2.setPrice(new BigDecimal(2000));
         product2.setActive(true);
         product2.setImageUrl("url.com");
