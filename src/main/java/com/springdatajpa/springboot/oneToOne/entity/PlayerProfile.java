@@ -1,9 +1,7 @@
 package com.springdatajpa.springboot.oneToOne.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 @Entity
 public class PlayerProfile {
@@ -12,6 +10,10 @@ public class PlayerProfile {
     private int id;
 
     private String twitter;
+
+    @OneToOne(mappedBy= "playerProfile", cascade= CascadeType.ALL)
+    @JsonBackReference
+    private Player player;
 
     public PlayerProfile() {
     }
@@ -37,8 +39,16 @@ public class PlayerProfile {
         this.twitter = twitter;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     @Override
     public String toString() {
-        return "PlayerDetail [id=" + id + ", twitter=" + twitter + "]";
+        return "PlayerDetail [id=" + id + ", twitter=" + twitter + ", player=" + player + "]";
     }
 }

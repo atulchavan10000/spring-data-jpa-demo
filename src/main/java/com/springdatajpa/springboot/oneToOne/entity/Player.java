@@ -1,5 +1,6 @@
 package com.springdatajpa.springboot.oneToOne.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,8 +11,9 @@ public class Player {
 
     private String name;
 
-    @OneToOne(cascade= CascadeType.ALL)//, optional = false)
+    @OneToOne(cascade= CascadeType.ALL, optional = false)
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    @JsonManagedReference
     private PlayerProfile playerProfile;
 
     public Player( ) {

@@ -22,6 +22,10 @@ public class PlayerProfileService {
         return repo.save(profile);
     }
     public void deletePlayerProfile(int id) {
+        PlayerProfile tempPlayerProfile = repo.findById(id).get();
+        tempPlayerProfile.getPlayer().setPlayerProfile(null);
+        tempPlayerProfile.setPlayer(null);
+        repo.save(tempPlayerProfile);
         repo.deleteById(id);
     }
 }
